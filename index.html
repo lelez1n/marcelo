@@ -44,16 +44,15 @@ section{padding:clamp(80px,11vw,140px) 0}
 .btn{display:inline-flex;align-items:center;gap:10px;white-space:nowrap;font:600 1rem/1 var(--sans);text-decoration:none;border-radius:999px;padding:17px 26px;position:relative;transition:transform 160ms var(--ease-out),background-color .2s ease,color .2s ease;user-select:none;-webkit-user-select:none}
 .btn:active{transform:scale(.97)}
 .btn-main{background:var(--sand);color:var(--sand-ink)}
-.btn-main{animation:beat 1.6s ease-in-out infinite;will-change:scale}
-@keyframes beat{0%,40%,100%{scale:1}12%{scale:1.07}22%{scale:.99}30%{scale:1.05}}
+.btn-main{--glow:rgba(201,173,131,.55);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{scale:1;box-shadow:0 0 0 0 var(--glow)}50%{scale:1.04;box-shadow:0 0 22px 3px var(--glow)}}
 .btn-ghost{color:var(--ink);padding-inline:6px;text-decoration:underline;text-underline-offset:6px;text-decoration-color:var(--sand)}
 .btn svg{width:18px;height:18px}
 @media (hover:hover) and (pointer:fine){.btn-main:hover{background:var(--sand-2)}.btn-ghost:hover{color:var(--sand-2)}}
 .wa{display:inline-grid;place-items:center;width:54px;height:54px;border-radius:50%;background:var(--wa);flex:none;transition:transform 160ms var(--ease-out);position:relative}
 .wa svg{width:28px;height:28px;fill:#fff}
 .wa:active{transform:scale(.94)}
-.wa::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--wa);animation:ring 2.6s var(--ease-out) infinite;pointer-events:none}
-@keyframes ring{0%{opacity:.7;transform:scale(1)}80%,100%{opacity:0;transform:scale(1.5)}}
+.wa{--glow:rgba(37,211,102,.5);animation:pulse 2.4s ease-in-out .3s infinite}
 
 /* nav */
 .nav{position:fixed;inset:0 0 auto;z-index:40;transition:background-color .3s ease,box-shadow .3s ease}
